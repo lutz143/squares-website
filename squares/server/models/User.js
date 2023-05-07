@@ -23,6 +23,12 @@ const userSchema = new Schema(
       type: String,
       required: true,
     }, 
+    avatar: {
+      type: String,
+    },
+    color: {
+      type: String,
+    },
     games: [
       {
         type: Schema.Types.ObjectId,
