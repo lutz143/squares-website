@@ -25,16 +25,16 @@ const gameSchema = new Schema({
     type: Number,
     default: 0
   },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+    get: (timestamp) => dateFormat(timestamp),
+  },
   squares: [
     {
       squareOwner: {
         type: String,
         required: true,
-      },
-      createdAt: {
-        type: Date,
-        default: Date.now,
-        get: (timestamp) => dateFormat(timestamp),
       },
     },
   ],
