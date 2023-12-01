@@ -1,49 +1,32 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection'); // Import the Sequelize instance
 
-// create our Valuation model
+// create our Game model
 class Game extends Model {}
-// subschema to house books within the User model
 Game.init(
   {
-    // saved game data from Steam API
     section_id: {
-      type: Number,
-      required: true,
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      allowNull: true,
     },
     sport: {
-      type: String,
-    },
-    teams: {
-      type: String,
+      type: DataTypes.STRING(50),
     },
     away_team: {
-      type: String,
+      type: DataTypes.STRING(50),
     },
     home_team: {
-      type: String,
+      type: DataTypes.STRING(50),
     },
     away_team_score: {
-      type: Number,
+      type: DataTypes.INTEGER,
       default: 0
     },
     home_team_score: {
-      type: Number,
+      type: DataTypes.INTEGER,
       default: 0
     },
-    createdAt: {
-      type: Date,
-      default: Date.now,
-      get: (timestamp) => dateFormat(timestamp),
-    },
-    squares: [
-      {
-        squareOwner: {
-          type: String,
-          required: true,
-        },
-      },
-    ],
   },
   {
     sequelize,
