@@ -14,7 +14,7 @@ import Header from "./containers/Header";
 import Footer from "./containers/Footer";
 
 import Home from "./pages/Home";
-import Stock from "./pages/Stock";
+import Squares from "./pages/Squares";
 import Register from "./pages/Register";
 import LoginHome from "./pages/LoginHome";
 import Login from "./pages/LoginForm";
@@ -49,7 +49,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/valuations/:id" element={<Stock />} />
+          <Route path="/game/:id" element={<Squares />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login-home" element={<LoginHome />} />
           <Route path="/login" element={<Login />} />

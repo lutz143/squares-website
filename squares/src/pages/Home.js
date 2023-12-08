@@ -9,7 +9,6 @@ import moment from 'moment';
 
 import axios from 'axios';
 
-
 function Home() {
   const user = useSelector((state) => state.auth.user)
   const error = useSelector((state) => state.auth.error)
@@ -18,17 +17,10 @@ function Home() {
 
   useEffect(() => {
     // Make a GET request to API endpoint
-    axios.get('http://localhost:3001/api/valuations/')
+    axios.get('http://localhost:3001/api/game/')
       .then(response => {
-        const formattedData = response.data.map((stock) => ({
-          ...stock,
-          Assessment_Date: moment(stock.Assessment_Date).format('M/DD/YYYY'),
-          previousClose: parseFloat(stock.previousClose).toFixed(2),
-          previousCloseFloat: stock.previousClose,
-          CAGR_CPS: parseFloat(stock.CAGR_CPS).toFixed(2),
-          NOM_CPS: parseFloat(stock.NOM_CPS).toFixed(2),
-          NOM_CPS_Float:stock.NOM_CPS,
-          CON_CPS: parseFloat(stock.CON_CPS).toFixed(2),
+        const formattedData = response.data.map((game) => ({
+          ...game,
         }));
         setData(formattedData);
       })
@@ -42,27 +34,31 @@ function Home() {
       <section>
         <Container>
           <Row lg={4}>
-            {data.map((stock, index) =>
+            {data.map((game, index) =>
               <div>
                 <Col>
                   <Card className='mb-3'>
                     <Card.Body>
-                      <Card.Header className={stock.NOM_CPS_Float>stock.previousCloseFloat ? classes.cardHeaderGood : classes.cardHeader}>
+                      <Card.Header className={game.NOM_CPS_Float>game.previousCloseFloat ? classes.cardHeaderGood : classes.cardHeader}>
                         <div>
-                          <h3 style={{marginBottom: '0'}}>{stock.Ticker}</h3>
+                          <h3 style={{marginBottom: '0'}}>{game.Ticker}</h3>
                         </div>
                       </Card.Header>
                       <Card.Text className={classes.cardBody}>
-                        <div style={{fontStyle: 'italic', fontSize: '10px'}}>Assessment Date: {stock.Assessment_Date}</div>
-                        <div>Previous Close: {stock.previousClose}</div>
-                        <div>CAGR CPS: {stock.CAGR_CPS}</div>
-                        <div>NOM CPS: {stock.NOM_CPS}</div>
-                        <div>CON CPS: {stock.CON_CPS}</div>
+                        <div style={{fontStyle: 'italic', fontSize: '10px'}}>Assessment Date: {game.Assessment_Date}</div>
+                        <Col>
+                          <div>Away Team: {game.away_team}</div>
+                          <div>{game.away_team_score}</div>
+                        </Col>
+                        <Col>
+                          <div>Home Team: {game.home_team}</div>
+                          <div>{game.home_team_score}</div>
+                        </Col>
                       </Card.Text>
                       <Card.Footer className={classes.cardFooter}>
-                        <Nav.Link as={Link} to={`/valuations/${stock.id}`}>
+                        <Nav.Link as={Link} to={`/game/${game.section_id}`}>
                           <Button className={classes.cardButton}>
-                            {stock.Ticker}
+                            Squares
                           </Button>
                         </Nav.Link>
                       </Card.Footer>
@@ -77,4 +73,4 @@ function Home() {
   );
 }
 
-export default Home
+export default Home;

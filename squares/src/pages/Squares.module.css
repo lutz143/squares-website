@@ -1,0 +1,28 @@
+/* Add styles in your CSS file or use a CSS-in-JS solution like styled-components */
+table {
+  border-collapse: collapse;
+}
+
+td {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #a3a1a1;
+}
+
+td:hover {
+  cursor: pointer;
+}
+
+.tableColumnHeader {
+  text-align: center;
+}
+
+.tableRowHeader {
+  padding-right: 8px;
+}
+
+.tableContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
