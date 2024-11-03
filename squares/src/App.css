@@ -1,5 +1,9 @@
 /* Root styling */
+/* Google Fonts Link */
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Orbitron:wght@400..900&display=swap');
 /* ===================================================================================================================================== */
+
+
 /* define variable colors */
 :root {
   --black: rgba(28, 29, 33, 1);

@@ -1,20 +1,19 @@
 import { NavLink } from "react-router-dom";
-import hamburgerMenu from "../images/hamburgerMenu.png"
-import profilePic from "../images/profilePic2.png"
+import hamburgerMenu from "../images/hamburgerMenu.png";
+import profilePic from "../images/profilePic2.png";
 
 import classes from "./Header.module.css";
-
-// const handleClick = () => {
-//   // Code to handle button click
-// };
-
 
 function Header() {
   return (
     <header className={classes.header}>
       <div className={classes.leftSection}>
-        <div className= {classes.headerIcon}>
-          <img className={classes.hamburgerMenu} src={hamburgerMenu} alt="Menu"/>
+        <div className={classes.headerIcon}>
+          <img
+            className={classes.hamburgerMenu}
+            src={hamburgerMenu}
+            alt="Menu"
+          />
           <NavLink to="/" className={classes.title}>
             Home
           </NavLink>
