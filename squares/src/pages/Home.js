@@ -48,9 +48,6 @@ function Home() {
                                                 </div>
                                             </Card.Header>
                                             <Card.Text className={classes.cardBody}>
-                                                <div style={{ fontStyle: "italic", fontSize: "10px" }}>
-                                                    Assessment Date: {game.Assessment_Date}
-                                                </div>
                                                 <Row style={{ maxWidth: '98%', marginBottom: '4px' }}>
                                                     <Col style={{ display: 'flex', width: '2px' }}>
                                                         <img

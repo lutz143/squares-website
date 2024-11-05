@@ -4,6 +4,7 @@
     background-color: var(--yellow) !important;
     text-align: center;
     font-style: italic;
+    margin-bottom: 8px;
 }
 
 .cardHeaderGood {
@@ -72,6 +73,7 @@
     background-color: var(--dark-gray);
     border-radius: 4px;
     align-items: center;
+    text-align: center;
     justify-content: center;
     font-size: 80%;
     color: var(--white);
